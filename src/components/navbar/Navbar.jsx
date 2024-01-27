@@ -141,11 +141,12 @@ function Navbar(props) {
                                 <Link to='/profile'>
                                     <div className=''>
                                         {
-                                            user.profile_img ? <div className="border bottom-2  rounded-full"><img style={{ objectFit: "cover" }} className="bg-cover rounded-full md:h-[30px] md:w-[30px] h-[20px] w-[20px]" src={`${ImageUrl}${user.profile_img}`} alt="no profile" /></div>
+
+                                            user.profile_img ? <div className="border bottom-2  rounded-full"><img style={{ objectFit: "cover" }} className="bg-cover rounded-full md:h-[30px] md:w-[30px] h-[20px] w-[20px]" src={user.profile_img} alt="no profile" /></div>
                                                 :
                                                 <p className="font-extrabold"><FaRegUserCircle className="text-xl" /></p>
                                         }
-                                        
+
                                     </div>
                                 </Link>
                             </div>

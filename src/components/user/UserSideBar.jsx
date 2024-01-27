@@ -69,7 +69,7 @@ function UserSideBar(props) {
                                 <div>
                                     {
                                         user.profile_img ?
-                                            <img className="rounded-full object-cover h-[12vh] w-[12vh]" src={`${ImageUrl}${user.profile_img}`} alt="" />
+                                            <img className="rounded-full object-cover h-[12vh] w-[12vh]" src={`${user.profile_img}`} alt="" />
                                             :
                                             <img style={{ objectFit: "cover" }} className="h-[80px] w-[80px] rounded-full" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlUvSN8kFRl3ADkH6SYy3c3utUKrdNH5Z-Ew&usqp=CAU' alt="" />
 
