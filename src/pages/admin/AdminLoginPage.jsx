@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import AdminLogin from "../../components/signin_form/adminLogin";
+import AdminLogin from "../../components/signin_form/AdminLogin";
 import { BaseUrl } from "../../constant/BaseUrl";
 import Cookies from "js-cookie";
 import axios from "axios";
