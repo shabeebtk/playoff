@@ -9,7 +9,6 @@ import axios from "axios";
 import { BaseUrl } from "../../constant/BaseUrl";
 import Cookies from 'js-cookie'
 import ButtonLoader from "../loader/ButtonLoader";
-import GoogleLogin from "react-google-login";
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -145,30 +144,8 @@ function Login() {
                     <div className="mt-4 text-grey-600 text-center">
                         <p>Don't have an account? <Link to="/register"><span className="text-purple-600 hover:underline">Register</span></Link></p>
                     </div>
-                    <div className="flex items-center w-full my-4">
-                        <hr className="w-full" />
-                        <p className="px-3 ">OR</p>
-                        <hr className="w-full" />
-                    </div>
-                    <div className="my-2 space-y-2">
-                        <button
-                            aria-label="Login with Google"
-                            type="button"
-                            className="flex items-center bottom-0 justify-center w-full p-2 space-x-4 rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
-                        >
-        
-                            <GoogleLogin
-                                className="w-screen flex justify-center text-black text-lg"
-                                clientId="279515383721-8nu9a8ia9v7hanakjdo0egaator41po5.apps.googleusercontent.com"
-                                buttonText="Sign in with Google"
-                                onSuccess={responseGoogle}
-                                onFailure={responseGoogle}
-                                cookiePolicy={'single_host_origin'}
-                            />
-
-                        </button>
-
-                    </div>
+                    
+                    
                 </div>
             </div>
         </div>
