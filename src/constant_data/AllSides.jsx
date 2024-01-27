@@ -1,0 +1,7 @@
+export const fiveAside = '5-aside'
+export const sixAside = '6-aside'
+export const sevenAside = '7-aside'
+export const eightAside = '8-aside'
+export const nineAside = '9-aside'
+export const tenAside = '10-aside'
+export const elevenAside = '11-aside'

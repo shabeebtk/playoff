@@ -1,0 +1,5 @@
+export const accepted = 'accepted'
+export const requested = 'requested'
+export const rejected = 'rejected'
+export const removed = 'removed'
+export const left = 'left'
