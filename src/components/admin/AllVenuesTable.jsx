@@ -11,7 +11,7 @@ function AllVenuesTable() {
     const [veneuUpdated, setVenueUpdated] = useState(false)
 
     const updateUser = ()=>{
-        setVenueUpdated(!venueUpdated)
+        setVenueUpdated(!veneuUpdated)
     }
 
     useEffect(() => {
@@ -43,9 +43,6 @@ function AllVenuesTable() {
                             venue name
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            venuename
-                        </th>
-                        <th scope="col" className="px-6 py-3">
                             place
                         </th>
                         <th scope="col" className="px-6 py-3">
@@ -67,13 +64,10 @@ function AllVenuesTable() {
                                 {venue.venue_name}
                             </td>
                             <td className="px-6 py-4">
-                                {venue.venue_name}
-                            </td>
-                            <td className="px-6 py-4">
                                 {venue.place},{venue.city}
                             </td>
                             <td className="px-6 py-4">
-                                {venue.phone}
+                                {venue.owner_details.owner_phone}
                             </td>
                             <td className="px-6 py-4">
                                 <p className="cursor-pointer font-medium text-blue-600 hover:underline">

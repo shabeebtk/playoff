@@ -91,7 +91,7 @@ function FilterGamesModal(props) {
 
             {modalVisible && (
                 <div className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0 h-screen backdrop-blur-sm bg-black bg-opacity-50">
-                    <div className="relative p-4 w-full max-w-md bg-[#F8F8F8] rounded-md">
+                    <div className="relative p-4 w-[97%] max-w-md bg-[#F8F8F8] rounded-md">
                         <div className='flex justify-between pr-3'>
                             <h1 className='text-lg font-semibold'>filter games</h1>
                             <button onClick={toggleModal} className='font-semibold'>x</button>
@@ -104,12 +104,12 @@ function FilterGamesModal(props) {
                                     <div className='mb-3 w-[100%]'>
                                         <label className='flex items-start font-semibold' htmlFor="">date</label>
                                         {/* <input type="date" multiple onChange={(e)=>setDate(e.target.value)} min={today} className='w-full bg-gray-100 border py-2 px-2' placeholder='enter here' /> */}
-                                        <DatePicker className='text-start' multiple onChange={setSelectedDates} minDate={today} value={selectedDates} />
+                                        <DatePicker className='text-start' inputClass='w-full' containerStyle={{backgroundColor: 'black', width:'100%'}} multiple onChange={setSelectedDates} minDate={today} value={selectedDates} />
                                     </div>
 
                                 </div>
                                 <h2 className='font-semibold text-start mb-1'>select court</h2>
-                                <div className='grid grid-cols-4 gap-2'>
+                                <div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
                                     <div className='flex items-center gap-1 font-semibold'>
                                         <input checked={court[fiveAside]} value={fiveAside} onClick={(e) => handleSelectCourt(e)} id='1' type="checkbox" />
                                         <label htmlFor='1'>{fiveAside}</label>

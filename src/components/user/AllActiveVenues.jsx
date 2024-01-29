@@ -154,7 +154,7 @@ function AllActiveVenues() {
 
                             {/* City Results */}
                             {cityResults.length > 0 && (
-                                <div className="absolute md:top-[24%] sm:top-auto z-10 mt-2 w-[12rem] sm:w-[auto] rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
+                                <div className="absolute top-[23%] md:top-[24%] z-10 mt-2 w-[12rem] sm:w-[auto] rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
                                     <div className="py-1" role="none">
                                         {cityResults.map((city, index) => (
                                             <p key={index} className="text-gray-700 cursor-pointer hover:bg-slate-200 block px-4 py-2 text-sm" role="menuitem" tabIndex="-1" onClick={() => { handleSelectCity(city) }}>

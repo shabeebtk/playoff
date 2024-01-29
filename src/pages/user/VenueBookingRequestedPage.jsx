@@ -2,14 +2,15 @@ import React from "react";
 import Navbar from "../../components/navbar/Navbar";
 import { MdPendingActions } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { backgoundImage } from "../../constant_data/BackgroundImage";
 
 function VenueBookingRequestedPage() {
     return (
         <>
             <Navbar />
 
-            <div className="flex justify-center items-center h-[80vh]">
-                <div className="card flex items-center h-[30vh] justify-center overflow-hidden relative text-left border-radius-[0.5rem] w-[70vh] shadow-md bg-white p-5">
+            <div style={backgoundImage} className="flex justify-center items-center h-[80vh]">
+                <div className="card flex bg-white items-center h-[30vh] justify-center overflow-hidden relative text-left border-radius-[0.5rem] w-[70vh] shadow-md bg-white p-5">
                     
                     <div className="header p-1.25rem 1rem h-[30vh]">
                         <div className="image flex justify-center my-3 mx-auto ">
