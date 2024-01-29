@@ -13,6 +13,7 @@ import ButtonLoader from "../loader/ButtonLoader";
 import toast, { Toaster } from 'react-hot-toast';
 import { userLogout } from "../../redux/action/userAuthAction";
 import { useDispatch } from "react-redux";
+import { backgoundImage } from "../../constant_data/BackgroundImage";
 
 
 function VenueCheckout(props) {
@@ -166,7 +167,7 @@ function VenueCheckout(props) {
     return (
         <>
             {venue ? (
-                <div className="w-full pb-[10vh] px-[3%] py-4 mb-5">
+                <div style={backgoundImage} className="w-full pb-[10vh] px-[3%] py-4 mb-5">
 
                     {/* slot booking */}
                     <div className="rounded p-3 bg-[#F8F8F8]" id="book_now">

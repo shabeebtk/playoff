@@ -14,6 +14,7 @@ import { getNotifications } from "../../instance/endpoints/user/userEndpoints";
 import { IoIosNotifications } from "react-icons/io";
 import { format } from 'date-fns'
 import { IoTimeOutline } from "react-icons/io5";
+import { backgoundImage } from "../../constant_data/BackgroundImage";
 
 function Navbar(props) {
 
@@ -61,14 +62,14 @@ function Navbar(props) {
 
     return (
 
-        <div className="bg-[#F8F8F8] flex justify-between px-[3%] shadow-xl items-center py-2 md:py-4">
+        <div style={backgoundImage} className="bg-[#F8F8F8] flex justify-between px-[3%] shadow-xl items-center py-2 md:py-4">
             <div>
                 <img className="h-[25px] md:h-[40px]" src={playoffLogo} alt="" />
             </div>
             <div>
                 {!user || !isAuthenticated ?
                     <div className="flex md:gap-7">
-                        <Link to="/register"><button className="shadow-md font-medium rounded-sm text-sm px-2 py-1 me-2 mb-2 md:py-2.5 md:shadow-lg md:hover:bg-slate-100 md:px-5">Register</button></Link>
+                        <Link to="/register"><button className="shadow-md font-medium rounded-sm text-sm px-2 py-1 bg-white me-2 mb-2 md:py-2.5 md:shadow-lg md:hover:bg-slate-100 md:px-5">Register</button></Link>
                         <Link to="/login"><button className="shadow-xl bg-[#4caf50] hover:bg-[#2c6b2e] text-white font-medium rounded-sm text-sm px-2 py-1 me-2 mb-2 md:py-2 md:px-5 md:shadow-lg">Login</button></Link>
                     </div>
                     :

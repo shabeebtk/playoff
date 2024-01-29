@@ -19,6 +19,7 @@ import { GiDuration } from "react-icons/gi";
 import { useSelector } from "react-redux";
 import FilterGamesModal from "../popup_modal/FilterGamesModal";
 import userAxiosInstance from "../../instance/axios/UserAxiosInstance";
+import { backgoundImage } from "../../constant_data/BackgroundImage";
 
 
 function AllGames() {
@@ -123,7 +124,7 @@ function AllGames() {
         <>
             {lineloader && <LineLoader />}
 
-            <div className="px-4 sm:px-[3%] h-[100vh] py-8 bg-[#F1F3F2]">
+            <div style={backgoundImage} className="px-4 sm:px-[3%] h-[100vh] py-8 bg-[#F1F3F2]">
 
                 {/* filter  */}
                 <div className="bg-[#F8F8F8] py-2 border sm:h-[10vh] flex flex-col sm:flex-row justify-between px-4 sm:px-5 items-center rounded mb-5">

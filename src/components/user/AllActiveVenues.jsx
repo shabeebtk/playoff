@@ -9,6 +9,7 @@ import { allCities } from "../../constant_data/AllCities";
 import { binarySearch } from "../../operations/BinarySearch";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import LineLoader from "../loader/LineLoader";
+import { backgoundImage } from "../../constant_data/BackgroundImage";
 
 function AllActiveVenues() {
     const [allVenues, setAllVenues] = useState([])
@@ -110,7 +111,7 @@ function AllActiveVenues() {
         <>
             {lineloader && <LineLoader />}
 
-            <div className="px-4 sm:px-[3%] h-full pb-[5vh] md:pb-[20vh] py-8 bg-[#F1F3F2]">
+            <div style={backgoundImage} className="px-4 sm:px-[3%] h-full pb-[5vh] md:pb-[20vh] py-8 bg-[#F1F3F2]">
 
                 {/* filter  */}
                 <div className="bg-[#F8F8F8] border md:py-4 py-2 flex flex-col sm:flex-row justify-between px-4 sm:px-5 items-center rounded mb-5">
@@ -171,7 +172,7 @@ function AllActiveVenues() {
                 {/* all venues  */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mb-2">
                     {searchVenue.map((venue, index) => (
-                        <div key={index} className="max-w-sm border hover:shadow-lg border-1 rounded-md shadow">
+                        <div key={index} className="max-w-sm bg-white border hover:shadow-lg border-1 rounded-md shadow">
                             <div>
                                 <img
                                     className="rounded-t-md md:h-[200px] h-[180px] w-full"

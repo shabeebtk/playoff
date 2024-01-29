@@ -15,6 +15,7 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 import { MdOutlineDateRange } from "react-icons/md";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { IoArrowBack } from "react-icons/io5";
+import { backgoundImage } from "../../constant_data/BackgroundImage";
 
 function VenueDetails(props) {
     const location = useLocation()
@@ -64,7 +65,7 @@ function VenueDetails(props) {
     return (
         <>
             {venue ?
-                <div className="w-full px-[3%] py-4">
+                <div style={backgoundImage} className="w-full px-[3%] py-4">
                     <div className="flex justify-between">
                         <h1 className="md:text-3xl sm:text-sm font-bold mb-2">{venue.venue_name}</h1>
                         <IoArrowBack className="cursor-pointer" onClick={()=> window.history.back()} size={25} />

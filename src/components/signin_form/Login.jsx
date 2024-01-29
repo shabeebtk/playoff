@@ -10,6 +10,7 @@ import { BaseUrl } from "../../constant/BaseUrl";
 import Cookies from 'js-cookie'
 import ButtonLoader from "../loader/ButtonLoader";
 import toast, { Toaster } from 'react-hot-toast';
+import { backgoundImage } from "../../constant_data/BackgroundImage";
 
 
 function Login() {
@@ -79,7 +80,7 @@ function Login() {
       }
 
     return (
-        <div className="bg-gray-50 md:pt-3 pt-20 px-[2%]">
+        <div style={backgoundImage} className="bg-gray-50 md:pt-3 pt-20 px-[2%]">
             <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 ">
                 <div>
                     <Link to="/">

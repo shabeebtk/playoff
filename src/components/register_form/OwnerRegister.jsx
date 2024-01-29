@@ -145,12 +145,7 @@ function OwnerRegister() {
                             />
                         </div>
                     </div>
-                    <a
-                        href="#"
-                        className="text-xs text-purple-600 hover:underline"
-                    >
-                        Forget Password?
-                    </a>
+                   
                     <div className="flex items-center mt-4">
                     {
                             !btnLoader ?
