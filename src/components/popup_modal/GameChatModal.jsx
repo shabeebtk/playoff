@@ -47,7 +47,7 @@ function GameChatModal(props) {
         getMessages()
         const ws_scheme = window.location.protocol == 'https' ? 'wss://' : 'wss://'
         // const ws = new WebSocket(`${ws_scheme}${webSocketUrl}${props.game.id}/`);
-        const ws = new WebSocket(`ws://http://www.playoff-turf.online/ws/chat/${props.game.id}`);
+        const ws = new WebSocket(`ws://https://www.playoff-turf.online/ws/chat/${props.game.id}`);
         
         alert(`${ws_scheme}${webSocketUrl}${props.game.id}/`)
         ws.onopen = () => {
