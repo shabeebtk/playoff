@@ -74,16 +74,6 @@ function GameChatModal(props) {
     }, [chatHistory, modalVisible])
 
 
-    const reconnectSocket = setInterval(()=>{
-        console.log(socket, 'socket')
-        if (!socket || socket.readyState == WebSocket.CLOSED){
-            console.log('reconnecting socket')
-        }
-        const date_time = new Date()
-        console.log(date_time, 'time')
-        console.log(socket.readyState == WebSocket.CLOSED)
-    }, 15000)
-
     const handleSendMessage = () => {
         if (socket && message) {
             const data = {
@@ -93,7 +83,6 @@ function GameChatModal(props) {
             }
             socket.send(JSON.stringify(data));
             setMessage('');
-            getMessages()
         }
     };
 
