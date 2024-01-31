@@ -8,7 +8,7 @@
 
 export const BaseUrl = 'https://playoff-turf.online/'
 export const ImageUrl = ''
-export const webSocketUrl = '52.66.242.228/ws/chat/'
+export const webSocketUrl = 'www.playoff-turf.online/ws/chat/'
 
 
 
