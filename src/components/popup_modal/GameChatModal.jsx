@@ -50,10 +50,12 @@ function GameChatModal(props) {
         ws.onopen = () => {
             console.log('WebSocket connection opened');
             setSocket(ws);
+            alert('opened')
             console.log(socket, 'socket')
         };
 
         ws.onmessage = (event) => {
+            alert(event)
             const data = JSON.parse(event.data);
             console.log(event, 'from server')
             console.log(event.data)
@@ -61,6 +63,7 @@ function GameChatModal(props) {
         };
 
         ws.onclose = () => {
+            alert('closed')
             console.log('WebSocket connection closed');
         };
 
