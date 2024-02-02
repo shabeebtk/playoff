@@ -47,7 +47,7 @@ function GameChatModal(props) {
         getMessages()
         const ws_scheme = window.location.protocol == 'https' ? 'wss://' : 'ws://'
         // const ws = new WebSocket(`${ws_scheme}${webSocketUrl}${props.game.id}/`);
-        const ws = new WebSocket(`wss://52.66.242.228/ws/chat/${props.game.id}/`);
+        const ws = new WebSocket(`ws://playoff-turf.online/ws/chat/${props.game.id}/`);
         
         ws.onopen = () => {
             console.log('WebSocket connection opened');
