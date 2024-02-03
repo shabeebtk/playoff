@@ -7,7 +7,7 @@ function UserGamesPage() {
     return (
         <>
             <Navbar />
-            <div style={backgoundImage} className="px-[3%] pt-6 md:flex gap-5 ">
+            <div style={backgoundImage} className="px-[3%] min-h-screen pt-6 md:flex gap-5 ">
                 <div className="flex items-start">
                     <UserSideBar sidebar='player_games' />
                 </div>

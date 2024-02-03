@@ -140,7 +140,7 @@ function EditProfileModal(props) {
                                         />
                                         {
                                             profileImage ?
-                                                <div style={{ backgroundImage: `url(${profileImage})`, backgroundSize:'cover' }} className="border-3 rounded-full w-[150px] h-[150px] border text-center">
+                                                <div style={{ backgroundImage: `url(${profileImage})`, backgroundSize:'cover', backgroundRepeat:'no-repeat' }} className="border-3 rounded-full w-[150px] h-[150px] border text-center">
                                                     <div className=' w-[150px] h-[150px] cursor-pointer rounded-full backdrop-blur-sm opacity-0 hover:opacity-100 flex justify-center items-center'>
                                                         <p className="text-white text-sm">Change Profile</p>
                                                     </div>

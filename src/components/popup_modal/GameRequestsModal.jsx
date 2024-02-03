@@ -93,7 +93,7 @@ function GameRequestsModal(props) {
 
             {modalVisible && (
                 <div className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center md:inset-0 h-screen backdrop-blur-sm bg-black bg-opacity-50">
-                    <div className="relative p-4 bg-[#F8F8F8] w-[40%] rounded-md">
+                    <div className="relative p-4 bg-[#F8F8F8] w-[80%] md:w-[40%] rounded-md">
                         <div className='flex justify-between pr-3'>
                             <h1 className='text-lg font-semibold'>game requests</h1>
                             <button onClick={toggleModal} className='font-semibold'>x</button>

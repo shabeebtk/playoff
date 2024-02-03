@@ -10,7 +10,7 @@ function VenueBookingRequestedPage() {
             <Navbar />
 
             <div style={backgoundImage} className="flex justify-center items-center h-[80vh]">
-                <div className="card flex bg-white items-center h-[30vh] justify-center overflow-hidden relative text-left border-radius-[0.5rem] w-[70vh] shadow-md bg-white p-5">
+                <div className="card flex bg-white items-center h-[30vh] justify-center overflow-hidden relative text-left border-radius-[0.5rem] w-[70vh] shadow-md p-5">
                     
                     <div className="header p-1.25rem 1rem h-[30vh]">
                         <div className="image flex justify-center my-3 mx-auto ">

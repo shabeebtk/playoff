@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BaseUrl } from "../../constant/BaseUrl";
-import Cookies from 'js-cookie'
-const successNotification = (message) => toast.success(message);
+import toast from "react-hot-toast";
+import ButtonLoader from "../loader/ButtonLoader";
 
 function OtpForm() {
     const navigate = useNavigate()
@@ -16,12 +16,18 @@ function OtpForm() {
     const [otp, setOtp] = useState('')
     const user = useSelector(state => state.userAuth.user)
     const successNotification = (message) => toast.success(message);
+    const [userEmail, setEmail] = useState(user ? user.email : '')
+    const [btnLoader, setBtnLoader] = useState(false)
+    const [otpBtnLoader, setOtpBtnLoader] = useState(false)
+    const [otpSend, setOtpSend] = useState(false)
+    const errorNotification = (message) => toast.error(message);
 
     const handleOtpConfirmation = async (e) => {
-        if (user.email && otp) {
+        if (userEmail && otp) {
+            setBtnLoader(true)
             e.preventDefault()
             await axios.post(`${BaseUrl}user/verify_email`, {
-                email: user.email,
+                email: userEmail,
                 email_otp: otp
             })
                 .then((response) => {
@@ -32,8 +38,44 @@ function OtpForm() {
                 .catch((error) => {
                     setErrorMessage(error.response.data.error)
                 })
+                .finally(()=>{
+                    setBtnLoader(false)
+                })
         }
     }
+
+    const sentOtp = () => {
+        if (!userEmail || otpSend){
+            return
+        }
+        setOtpBtnLoader(true)
+        axios.post(`${BaseUrl}user/send_email_otp`, {
+            email : userEmail
+        })
+        .then((response)=>{
+            console.log(response)
+            successNotification('otp sent')
+            setOtpSend(true)
+        })
+        .catch((error) => {
+            console.log(error.response)
+            if (error.response.status == 409){
+                successNotification('email already verified')
+                navigate('/login')
+                return
+            }
+            if (error.response.status == 401){
+                errorNotification('email not registered')
+                navigate('/register')
+                return
+            }
+            errorNotification('failed to send otp')
+        })
+        .finally(() => {
+            setOtpBtnLoader(false)
+        })
+    }
+
 
     return (
         <div className="bg-gray-50 pt-3">
@@ -47,10 +89,40 @@ function OtpForm() {
 
                     <p className="text-center text-red-900 text-sm mb-2">{errorMessage ? errorMessage : ''}</p>
 
-                    <p className="text-center mb-2">OTP has sent to your <span className="text-green-800">{user ? user.email : ''}</span></p>
+                    {user && <p className="text-center mb-2">OTP has sent to your <span className="text-green-800">{user ? user.email : ''}</span></p>}
+                    {
+                        !user &&
+                        <div className="mt-4 flex gap-1 items-center" >
+                            <div className="w-full">
+                                <label
+                                    htmlFor="email"
+                                    className="register_label"
+                                >
+                                    enter email
+                                </label>
+                                <div className="flex flex-col items-start">
+                                    <input
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        type="email"
+                                        name="email"
+                                        className="block w-full mt-1 py-2 pl-2 border rounded-md shadow-sm"
+                                    />
+                                </div>
+                            </div>
+                            <div className="w-[30%]">
+                                {
+                                    otpBtnLoader ? <button className='green_btn px-10 mt-8 py-4 shadow-none'><ButtonLoader /></button>
+                                        :
+                                        <button onClick={sentOtp} className='green_btn shadow-none mt-8'>sent otp</button>
+                                }
+                            </div>
+
+                        </div>
+                    }
+
                     <div className="mt-4">
                         <label
-                            htmlFor="email"
+                            htmlFor="otp"
                             className="register_label"
                         >
                             enter otp
@@ -58,18 +130,14 @@ function OtpForm() {
                         <div className="flex flex-col items-start">
                             <input
                                 onChange={(e) => setOtp(e.target.value)}
-                                type="email"
-                                name="email"
-                                className="block w-full mt-1 py-2 pl-2 rounded-md shadow-sm"
+                                type="text"
+                                name="otp"
+                                className="block w-full mt-1 py-2 pl-2 rounded-md shadow-sm border"
                             />
                         </div>
                     </div>
 
-                    <div
-                        className="text-xs text-purple-600 hover:underline mt-2 flex justify-end"
-                    >
-                        resend password
-                    </div>
+
                     <div className="flex items-center mt-4">
                         <button onClick={handleOtpConfirmation} className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#4caf50] rounded-sm">
                             verify and login

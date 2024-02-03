@@ -149,43 +149,43 @@ function UserSideBar(props) {
                                 </button>
                                 <div className="py-4 overflow-y-auto">
                                     {/* Your list items go here */}
-                                    <ul class="space-y-2 font-medium">
+                                    <ul className="space-y-2 font-medium">
                                         <li>
                                             <Link to='/profile'>
-                                                <div class="flex items-center p-2 text-gray-900 rounded-sm border">
+                                                <div className="flex items-center p-2 text-gray-900 rounded-sm border">
                                                     <FaRegUserCircle />
-                                                    <span class="ms-3 text-md font-semibold">player profile</span>
+                                                    <span className="ms-3 text-md font-semibold">player profile</span>
                                                 </div>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link to='/bookings'>
-                                                <div class="flex items-center p-2 text-gray-900 rounded-sm border">
+                                                <div className="flex items-center p-2 text-gray-900 rounded-sm border">
                                                     <CiBookmark />
-                                                    <span class="ms-3 text-md font-semibold">venue bookings</span>
+                                                    <span className="ms-3 text-md font-semibold">venue bookings</span>
                                                 </div>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link to='/profile/your_games'>
-                                                <div class="flex items-center p-2 text-gray-900 rounded-sm border">
+                                                <div className="flex items-center p-2 text-gray-900 rounded-sm border">
                                                     <GiSoccerKick />
-                                                    <span class="ms-3 text-md font-semibold">player games</span>
+                                                    <span className="ms-3 text-md font-semibold">player games</span>
                                                 </div>
                                             </Link>
                                         </li>
                                         <li>
                                             <Link to='/personal/details'>
-                                                <div class="flex items-center p-2 text-gray-900 rounded-sm border">
+                                                <div className="flex items-center p-2 text-gray-900 rounded-sm border">
                                                     <FaRegAddressCard />
-                                                    <span class="ms-3 text-md font-semibold">personal details</span>
+                                                    <span className="ms-3 text-md font-semibold">personal details</span>
                                                 </div>
                                             </Link>
                                         </li>
                                         <li>
-                                            <div onClick={handleLogout} class="flex cursor-pointer items-center p-2 text-gray-900 rounded-sm border">
+                                            <div onClick={handleLogout} className="flex cursor-pointer items-center p-2 text-gray-900 rounded-sm border">
                                                 <RiLogoutBoxFill />
-                                                <span class="ms-3 text-md font-semibold">Logout</span>
+                                                <span className="ms-3 text-md font-semibold">Logout</span>
                                             </div>
                                         </li>
                                     </ul>

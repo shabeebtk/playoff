@@ -23,6 +23,7 @@ function Login() {
     const user = useSelector(state => state.userAuth.user)
     const [btnLoader, setBtnLoader] = useState(false)
     const successNotification = (message) => toast.success(message);
+    const errorNotification = (message) => toast.error(message);
 
     useEffect(() => {
         if (user && isAuthenticated) {
@@ -52,6 +53,11 @@ function Login() {
                     })
                         .then(response => {
                             console.log(response.data)
+                            if (!response.data.verified){
+                                errorNotification('please verify your email')
+                                navigate('/confirm_email')
+                                return
+                            }
                             dispatch(userLogin(response.data))
                             setBtnLoader(false)
                             successNotification('login success')

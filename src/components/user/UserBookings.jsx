@@ -98,7 +98,7 @@ function UserBookings() {
                                             booking.booking_status === 'accepted' && booking.payment_status === true &&
                                             <p className="absolute cursor-pointer top-1 right-2 text-xs font-semibold"><CreateActivityModal booking={booking} /></p>
                                         }
-                                        <div className="flex md:flex-row gap-4 items-center col-span-12 md:col-span-6">
+                                        <div className="flex md:flex-row gap-4 items-center col-span-12 mt-3 md:col-span-6">
                                             <div className="flex flex-col justify-center items-center space-y-2">
                                                 {
                                                     booking.venue ?

@@ -7,7 +7,7 @@ function UserProfilePage() {
     return (
         <>
             <Navbar />
-            <div style={backgoundImage} className="px-[3%] pt-6 md:flex gap-5 h-screen">
+            <div style={backgoundImage} className="px-[3%] min-h-screen pt-6 md:flex gap-5 h-screen">
 
                 <div className="flex items-start">
                     <UserSideBar sidebar='dashboard' />

@@ -48,7 +48,7 @@ function GameChatModal(props) {
         const ws_scheme = window.location.protocol == 'https' ? 'wss://' : 'ws://'
         // const ws = new WebSocket(`${ws_scheme}${webSocketUrl}${props.game.id}/`);
         const ws = new WebSocket(`wss://playoff-turf.online/ws/chat/${props.game.id}/`);
-        
+
         ws.onopen = () => {
             console.log('WebSocket connection opened');
             setSocket(ws);
@@ -120,7 +120,7 @@ function GameChatModal(props) {
 
             {modalVisible && (
                 <div className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center md:inset-0 h-screen backdrop-blur-sm bg-black bg-opacity-50">
-                    <div className="relative h-[80%] p-4 bg-[#F8F8F8] md:w-[40%] sm:w-[90%] rounded-md">
+                    <div className="relative p-4 bg-[#F8F8F8] md:w-[40%] w-[100%]  rounded-md">
                         <div className='flex justify-between pr-3'>
                             <h1 className='text-lg font-semibold'>{props.game.game_name}</h1>
                             <button onClick={toggleModal} className='font-semibold'>x</button>
@@ -148,14 +148,21 @@ function GameChatModal(props) {
                                                                     <img style={{ objectFit: "cover" }} className="h-[30px] w-[30px] rounded-full" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlUvSN8kFRl3ADkH6SYy3c3utUKrdNH5Z-Ew&usqp=CAU' alt="profile" />
 
                                                             }
-                                                            <div className="bg-[#78E08F] rounded-lg px-4 py-2 max-w-[80%]">
-                                                                <p className="text-white text-sm">{msg.message}</p>
+                                                            <div className="bg-gray-200 flex rounded-lg ps-1 pr-1 py-1 gap-2 max-w-[80%]">
+                                                                <p className=" whitespace-pre-line text-sm mb-1">{msg.message}</p>
+                                                                <div className='flex items-end'>
+                                                                    <p style={{fontSize:'10px'}} className='text-xs whitespace-pre'>{new Date(msg.date_time).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</p>
+                                                                </div>
                                                             </div>
+                                                            
                                                         </div>
                                                         :
                                                         <div className="flex items-center gap-1 justify-end">
-                                                            <div className="bg-gray-200 rounded-lg px-4 py-2 max-w-[80%]">
-                                                                <p className="text-gray-900 text-sm">{msg.message}</p>
+                                                            <div className=" bg-[#4caf50] text-white relative flex gap-2 rounded-lg ps-3 pr-1 py-1 max-w-[80%]">
+                                                                <p className="whitespace-pre-line text-sm mb-1">{msg.message}</p>
+                                                                <div className='flex items-end'>
+                                                                    <p style={{fontSize:'10px'}} className='text-xs whitespace-pre'>{new Date(msg.date_time).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</p>
+                                                                </div>
                                                             </div>
                                                             {
                                                                 msg.user.profile_img ?
@@ -175,9 +182,10 @@ function GameChatModal(props) {
 
                                 <div className="flex justify-center items-center h-16">
                                     {/* Chat input */}
-                                    <input
+                                    <textarea
+                                        rows={1}
                                         type="text"
-                                        className="border border-gray-300 rounded-lg py-2 px-4 w-full max-w-lg mr-4"
+                                        className="border resize-none outline-none border-gray-300 rounded-lg py-2 px-4 w-full max-w-lg mr-4"
                                         placeholder="Type a message..."
                                         onChange={(e) => setMessage(e.target.value)}
                                         value={message}
