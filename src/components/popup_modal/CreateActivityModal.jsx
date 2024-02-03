@@ -9,6 +9,7 @@ import ButtonLoader from '../loader/ButtonLoader';
 import { useDispatch } from 'react-redux';
 import { userUpdate } from '../../redux/action/userAuthAction';
 import { advanced, amateur, beginner, intermediate, professional, skillValue } from '../../constant_data/SkillValue';
+import { useNavigate } from 'react-router-dom';
 
 function CreateActivityModal(props) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -24,6 +25,7 @@ function CreateActivityModal(props) {
     const [otpBtnLoader, setOtpBtnLoader] = useState(false)
     const [btnLoader, setBtnLoader] = useState(false)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const toggleModal = () => {
         setModalVisible(!modalVisible);
@@ -35,6 +37,10 @@ function CreateActivityModal(props) {
 
             if (maxPlayers <= 0){
                 errorNotification("max players can't be zero")
+                return 
+            }
+            if (maxPlayers > 25){
+                errorNotification("max players can't be more than 25")
                 return 
             }
 
@@ -57,6 +63,7 @@ function CreateActivityModal(props) {
                 console.log(response) 
                 successNotification('game created successfully')
                 toggleModal()
+                navigate('/profile/your_games')
             })
             .catch((error)=>{
                 console.log(error)
