@@ -53,7 +53,7 @@ function Login() {
                     })
                         .then(response => {
                             console.log(response.data)
-                            if (!response.data.verified){
+                            if (response.data.verified == false){
                                 errorNotification('please verify your email')
                                 navigate('/confirm_email')
                                 return
