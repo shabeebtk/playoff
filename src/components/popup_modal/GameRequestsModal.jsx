@@ -24,18 +24,17 @@ function GameRequestsModal(props) {
     };
 
     useEffect(() => {
-        if (modalVisible) {
-            userAxiosInstance.post(getGameRequests, {
-                game_id: props.game_id
+        userAxiosInstance.post(getGameRequests, {
+            game_id: props.game_id
+        })
+            .then((response) => {
+                console.log(response, 'modal')
+                setRequestedUsers(response.data)
             })
-                .then((response) => {
-                    console.log(response, 'modal')
-                    setRequestedUsers(response.data)
-                })
-                .catch((error) => {
-                    console.log(error)
-                })
-        }
+            .catch((error) => {
+                console.log(error)
+            })
+
     }, [modalVisible, refresh])
 
     const formatDateTime = (dateTimeString) => {
@@ -88,7 +87,7 @@ function GameRequestsModal(props) {
     return (
         <div>
             <div>
-                <button onClick={toggleModal} className="bg-[#4caf50] px-4 py-2 rounded-sm text-white">see requests</button>
+                <button onClick={toggleModal} className="bg-[#4caf50] px-4 py-2 rounded-sm text-white">see requests ({requestedUsers.length})</button>
             </div>
 
             {modalVisible && (
@@ -122,7 +121,7 @@ function GameRequestsModal(props) {
                                             </div>
 
                                             <div className='flex gap-1 items-center'>
-                                                <button onClick={()=> handleDeclineRequest(user.user.id, user.user.player_username)} className='py-1 h-[30px] text-xs text-white px-4 bg-red-500'>decline</button>
+                                                <button onClick={() => handleDeclineRequest(user.user.id, user.user.player_username)} className='py-1 h-[30px] text-xs text-white px-4 bg-red-500'>decline</button>
                                                 <button onClick={() => handleAcceptRequest(user.user.id, user.user.player_username)} className='py-1 px-4 h-[30px] text-xs text-white bg-[#4caf50]'>accept</button>
                                             </div>
                                         </div>

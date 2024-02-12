@@ -127,7 +127,7 @@ function GameDetails() {
                                             gameDetails.expired == true ?
                                                 <p className="px-4 py-2 rounded-sm text-[#4caf50]">game ended</p>
                                                 : user && user.id == gameDetails.user.id ?
-                                                    <div className="flex flex-col gap-1">
+                                                    <div className="flex flex-col justify-center items-center gap-1">
                                                         <GameRequestsModal game_id={gameDetails.id} update={() => setRefresh(!refresh)} />
                                                         <GameChatModal game={gameDetails} />
                                                     </div>

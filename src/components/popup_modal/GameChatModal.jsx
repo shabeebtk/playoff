@@ -44,32 +44,35 @@ function GameChatModal(props) {
     }
 
     useEffect(() => {
-        getMessages()
-        const ws_scheme = window.location.protocol == 'https' ? 'wss://' : 'ws://'
-        // const ws = new WebSocket(`${ws_scheme}${webSocketUrl}${props.game.id}/`);
-        const ws = new WebSocket(`wss://playoff-turf.online/ws/chat/${props.game.id}/`);
+        if (modalVisible) {
+            getMessages()
+            const ws_scheme = window.location.protocol == 'https' ? 'wss://' : 'ws://'
+            // const ws = new WebSocket(`${ws_scheme}${webSocketUrl}${props.game.id}/`);
+            const ws = new WebSocket(`wss://playoff-turf.online/ws/chat/${props.game.id}/`);
 
-        ws.onopen = () => {
-            console.log('WebSocket connection opened');
-            setSocket(ws);
-            console.log(socket, 'socket')
-        };
+            ws.onopen = () => {
+                console.log('WebSocket connection opened');
+                setSocket(ws);
+                console.log(socket, 'socket')
+            };
 
-        ws.onmessage = (event) => {
-            const data = JSON.parse(event.data);
-            console.log(event, 'from server')
-            console.log(event.data)
-            setChatHistory((prevHistory) => [...prevHistory, data.message]);
-        };
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                console.log(event, 'from server')
+                console.log(event.data)
+                setChatHistory((prevHistory) => [...prevHistory, data.message]);
+            };
 
-        ws.onclose = () => {
-            console.log('WebSocket connection closed');
-        };
+            ws.onclose = () => {
+                console.log('WebSocket connection closed');
+            };
 
-        return () => {
-            ws.close();
-        };
-    }, []);
+            return () => {
+                ws.close();
+            };
+        }
+
+    }, [modalVisible]);
 
     useEffect(() => {
         autoScroll()
@@ -115,7 +118,7 @@ function GameChatModal(props) {
     return (
         <div>
             <div>
-                <button onClick={toggleModal} className="bg-[#F8F8F8] border border-gray-500 px-5 py-2 rounded-sm font-semibold">game chat</button>
+                <button onClick={toggleModal} className="bg-[#F8F8F8] border border-gray-500 px-8 py-2 rounded-sm font-semibold">game chat</button>
             </div>
 
             {modalVisible && (
@@ -151,17 +154,17 @@ function GameChatModal(props) {
                                                             <div className="bg-gray-200 flex rounded-lg ps-1 pr-1 py-1 gap-2 max-w-[80%]">
                                                                 <p className=" whitespace-pre-line text-sm mb-1">{msg.message}</p>
                                                                 <div className='flex items-end'>
-                                                                    <p style={{fontSize:'10px'}} className='text-xs whitespace-pre'>{new Date(msg.date_time).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</p>
+                                                                    <p style={{ fontSize: '10px' }} className='text-xs whitespace-pre'>{new Date(msg.date_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                                                                 </div>
                                                             </div>
-                                                            
+
                                                         </div>
                                                         :
                                                         <div className="flex items-center gap-1 justify-end">
                                                             <div className=" bg-[#4caf50] text-white relative flex gap-2 rounded-lg ps-3 pr-1 py-1 max-w-[80%]">
                                                                 <p className="whitespace-pre-line text-sm mb-1">{msg.message}</p>
                                                                 <div className='flex items-end'>
-                                                                    <p style={{fontSize:'10px'}} className='text-xs whitespace-pre'>{new Date(msg.date_time).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</p>
+                                                                    <p style={{ fontSize: '10px' }} className='text-xs whitespace-pre'>{new Date(msg.date_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                                                                 </div>
                                                             </div>
                                                             {
