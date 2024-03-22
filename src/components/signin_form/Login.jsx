@@ -12,7 +12,6 @@ import ButtonLoader from "../loader/ButtonLoader";
 import toast, { Toaster } from 'react-hot-toast';
 import { backgoundImage } from "../../constant_data/BackgroundImage";
 
-
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')

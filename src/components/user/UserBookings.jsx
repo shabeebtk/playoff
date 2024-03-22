@@ -164,7 +164,7 @@ function UserBookings() {
                                                                         <button className="px-2 text-white font-semibold py-2 text-sm rounded-sm bg-green-500">
                                                                             <RazorpayPage booking_id={booking.id} updateBookings={() => setupdateBookings(!updatedBookings)} total_price={booking.total_price} user={booking.user} />
                                                                         </button>
-                                                                        <button className="px-2 text-white py-2 text-sm rounded-sm bg-red-500"> <ConfirmModal confirm={() => handleConfirm(handleCancelBooking(booking.id))} btnText='cancel booking' /></button>
+                                                                        <button className="px-2 text-white whitespace-nowrap py-2 text-sm rounded-sm bg-red-500"> <ConfirmModal confirm={() => handleConfirm(handleCancelBooking(booking.id))} btnText='cancel booking' /></button>
                                                                     </div>
                                                                 </>
                                                                 :

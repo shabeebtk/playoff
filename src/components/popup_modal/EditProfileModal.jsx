@@ -137,6 +137,7 @@ function EditProfileModal(props) {
                                             type="file"
                                             className="hidden"
                                             onChange={(e) => handleFileChange(e)}
+                                            accept='image/*'
                                         />
                                         {
                                             profileImage ?
