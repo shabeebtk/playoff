@@ -1,1 +1,1 @@
-export const RazorpayKey = 'rzp_test_baxRCS3fzoY6z'
+export const RazorpayKey = 'rzp_test_baxRCS3fzoY6zA'
